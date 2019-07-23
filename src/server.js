@@ -1,6 +1,7 @@
 import express from 'express'
 import User from './socket/namespace_user'
 import Admin from './socket/namespace_admin'
+import Status from './socket/namespace_userStatus'
 import AdminCounter from './socket/counter'
 // import path from "path";
 // import bodyParser from "body-parser";
@@ -19,6 +20,7 @@ mongoose
 
 const adminOnline = new AdminCounter()
 
+Status(io, adminOnline)
 User(io, adminOnline)
 Admin(io, adminOnline)
 
